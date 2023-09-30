@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-compatible" content="ie=edge">
+<title>Login</title>
+</head>
+<style>
+.form{
+font-size:20px;
+background-color:#faf5cd;
+margin-left:100px;
+margin-right:100px;
+padding-left:10px;
+}
+.mainheading{
+height:125px;
+width:99.2%;
+border-style:solid;
+background-color:#800080;
+margin-left:5px;
+margin-top:5px;
+margin-bottom:50px;
+}
+.mainname{
+font-style:garamond;
+width:30%;
+font-size:82px;
+padding-top:10px;
+padding-left:50px;
+color:yellow;
+float:left;
+}
+p{
+    text-align: center;
+    font-size:34px;
+}
+.body{
+  background-color:#b2f4f7;
+}
+a:link {
+  color:white;
+  background-color:#9a009a;
+  text-decoration:none;
+  padding: 2px 6px;
+  text-align: center;
+  display: inline-block;
+}
+a:visited {
+  color:white;
+  background-color:#9a009a;
+  text-decoration: none;
+  padding: 2px 6px;
+  text-align: center;
+  display: inline-block;
+}
+a:hover {
+  color:#f1fab9;
+  background-color:#9a009a;
+  text-decoration: underline;
+}
+</style>
+<body class="body">
+<div class="mainheading">
+<div class="mainname">
+Covipedia
+</div>
+</div>
+<p>Login into Covipedia</p>
+<form method="POST">
+{% csrf_token %}
+<fieldset class="form">
+Username: 
+<input type="text" name="username"><br><br>
+Password: 
+<input type="Password" name="password"><br><br>
+<button>submit</button>
+</fieldset>
+</form>
+<div>
+{% for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+</div>
+<p>Don't have an account?</p>
+<p><a href="{% url 'register'  %}">Register</a></p>
+</body>
+</html>
